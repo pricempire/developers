@@ -24,15 +24,15 @@ var spec = {
     ],
     "tags": [
         {
-            "name": "items",
-            "description": "Get items or item Prices over API",
+            "name": "Item",
+            "description": "Get item prices over API",
         },
         {
-            "name": "portfolio",
+            "name": "Portfolio",
             "description": "Manage your portfolios with API. (Soon)",
         },
         {
-            "name": "inventory",
+            "name": "Inventory",
             "description": "Get Inventories (Soon)",
         }
     ],
