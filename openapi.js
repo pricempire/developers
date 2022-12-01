@@ -825,7 +825,6 @@ var spec = {
                             "X-Expires-After": {
                                 "description": "date in UTC when token expires",
                                 "schema": {
-                                
                                     "type": "string",
                                     "format": "date-time"
                                 }
@@ -1124,7 +1123,6 @@ var spec = {
                     "AK-47 | Fire Serpent (Field-Tested)": { "buff163": 65979, "csgoempire": 62010, "dmarket": 73290 }
                 }
             },
-            /*
             "requestBodies": {
                 "Pet": {
                     "description": "Pet object that needs to be added to the store",
@@ -1155,7 +1153,14 @@ var spec = {
                     }
                 }
             },
-            */
+            "securitySchemes": {
+                "X-API-KEY": {
+                    "type": "apiKey",
+                    "description": "Pricempire.com API Key",
+                    "name": "X-API-KEY",
+                    "in": "header"
+                }
+            }
         }
     }
 }
