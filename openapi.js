@@ -29,11 +29,11 @@ var spec = {
         },
         {
             "name": "portfolio",
-            "description": "Manage your portfolios with API.",
+            "description": "Manage your portfolios with API. (Soon)",
         },
         {
             "name": "inventory",
-            "description": "Get Inventories",
+            "description": "Get Inventories (Soon)",
         }
     ],
     "paths": {
@@ -99,7 +99,7 @@ var spec = {
                 },
                 "security": [
                     {
-                        "api_key": []
+                        "bearerAuth": []
                     }
                 ]
             },
@@ -211,7 +211,7 @@ var spec = {
                 },
                 "security": [
                     {
-                        "api_key": []
+                        "bearerAuth": []
                     }
                 ]
             },
@@ -1153,14 +1153,17 @@ var spec = {
                     }
                 }
             },
-            "securitySchemes": {
-                "X-API-KEY": {
-                    "type": "apiKey",
-                    "description": "Pricempire.com API Key",
-                    "name": "X-API-KEY",
-                    "in": "header"
-                }
+        },
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT",
+                "description": "Pricempire.com API Key",
             }
         }
+    },
+    "security": {
+        bearerAuth: [],
     }
 }
