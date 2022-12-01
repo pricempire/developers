@@ -825,6 +825,7 @@ var spec = {
                             "X-Expires-After": {
                                 "description": "date in UTC when token expires",
                                 "schema": {
+                                
                                     "type": "string",
                                     "format": "date-time"
                                 }
