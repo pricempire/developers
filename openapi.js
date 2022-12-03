@@ -40,7 +40,7 @@ var spec = {
         "/getItemByName/{market_hash_name}": {
             "get": {
                 "tags": [
-                    "items"
+                    "Item"
                 ],
                 "summary": "Getting a single item (API Key required)",
                 "description": "Getting a single item by market_hash_name",
@@ -107,7 +107,7 @@ var spec = {
         "/getAllItems": {
             "get": {
                 "tags": [
-                    "items"
+                    "Item"
                 ],
                 "summary": "Getting all items in one response (API Key required)",
                 "description": "Getting all items in one response",
