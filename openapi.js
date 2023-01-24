@@ -48,8 +48,8 @@ var spec = {
                     {
                         "name": "api_key",
                         "in": "query",
-                        "description": "",
-                        "required": false,
+                        "description": "Pricempire.com API key",
+                        "required": true,
                         "schema": {
                             "type": "string"
                         }
@@ -125,8 +125,8 @@ var spec = {
                     {
                         "name": "api_key",
                         "in": "query",
-                        "description": "",
-                        "required": false,
+                        "description": "Pricempire.com API key",
+                        "required": true,
                         "schema": {
                             "type": "string"
                         }
