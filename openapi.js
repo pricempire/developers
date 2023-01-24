@@ -46,6 +46,15 @@ var spec = {
                 "operationId": "getItemByName",
                 "parameters": [
                     {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
                         "name": "market_hash_name",
                         "in": "path",
                         "description": "Name of item to return",
@@ -98,7 +107,8 @@ var spec = {
                 },
                 "security": [
                     {
-                        "bearerAuth": []
+                        "bearerAuth": [],
+                        "api_key": []
                     }
                 ]
             },
@@ -112,6 +122,15 @@ var spec = {
                 "description": "Getting all items in one response",
                 "operationId": "getAllItems",
                 "parameters": [
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
                     {
                         "name": "currency",
                         "in": "query",
@@ -210,7 +229,8 @@ var spec = {
                 },
                 "security": [
                     {
-                        "bearerAuth": []
+                        "bearerAuth": [],
+                        "api_key": []
                     }
                 ]
             },
@@ -1163,6 +1183,7 @@ var spec = {
         }
     },
     "security": {
+        api_key: [],
         bearerAuth: [],
     }
 }
