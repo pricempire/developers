@@ -18,7 +18,7 @@ var spec = {
     },
     "servers": [
         {
-            "url": "https://api.pricempire.com/v2/"
+            "url": "https://pricempire.com/api/v2/"
         }
     ],
     "tags": [
