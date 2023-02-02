@@ -106,7 +106,7 @@ var spec = {
                 "tags": [
                     "Item"
                 ],
-                "summary": "Getting all items in one response (API Key required)",
+                "summary": "FILTERED! by params. Getting all items in one response (API Key required)",
                 "description": "Getting all items in one response",
                 "operationId": "getAllItems",
                 "parameters": [
