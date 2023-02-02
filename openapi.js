@@ -1,7 +1,7 @@
 var spec = {
     "openapi": "3.0.2",
-    "info": { 
-        "description": `A few endpoint need an active subscription. You can purchase [here](https://pricempire.com/subscription).`,
+    "info": {
+        "description": `A few endpoint need an active subscription. You can purchase [here](https://pricempire.com/subscribe).`,
         "termsOfService": "https://pricempire.com/terms",
         "contact": {
             "email": "info@pricempire.com"
@@ -18,7 +18,7 @@ var spec = {
     },
     "servers": [
         {
-            "url": "https://pricempire.com/api/v2/"
+            "url": "https://pricempire.com/api/"
         }
     ],
     "tags": [
@@ -36,7 +36,7 @@ var spec = {
         }
     ],
     "paths": {
-        "/getItemByName/{market_hash_name}": {
+        "v2/getItemByName/{market_hash_name}": {
             "get": {
                 "tags": [
                     "Item"
@@ -107,13 +107,12 @@ var spec = {
                 },
                 "security": [
                     {
-                        "bearerAuth": [],
                         "api_key": []
                     }
                 ]
             },
         },
-        "/getAllItems": {
+        "v2/getAllItems": {
             "get": {
                 "tags": [
                     "Item"
@@ -140,17 +139,6 @@ var spec = {
                             "type": "string",
                             "format": "string",
                             "example": 'USD'
-                        }
-                    },
-                    {
-                        "name": "source",
-                        "in": "query",
-                        "description": "Selected Providers",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "format": "string",
-                            "example": 'buff163,skinport,csgoempire'
                         }
                     },
                     {
@@ -229,7 +217,55 @@ var spec = {
                 },
                 "security": [
                     {
-                        "bearerAuth": [],
+                        "api_key": []
+                    }
+                ]
+            },
+        },
+        "v3/getAllItems": {
+            "get": {
+                "tags": [
+                    "Item"
+                ],
+                "summary": "Getting all items in one response (API Key required)",
+                "description": "Getting all items in one response",
+                "operationId": "getAllItemsV3",
+                "parameters": [
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "Pricempire.com API key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "currency",
+                        "in": "query",
+                        "description": "Selected currency (Default: USD)",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "example": 'USD'
+                        }
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AllItemV3"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
                         "api_key": []
                     }
                 ]
@@ -1142,43 +1178,54 @@ var spec = {
                     "AK-47 | Fire Serpent (Field-Tested)": { "buff163": 65979, "csgoempire": 62010, "dmarket": 73290 }
                 }
             },
-            "requestBodies": {
-                "Pet": {
-                    "description": "Pet object that needs to be added to the store",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Pet"
-                            }
-                        },
-                        "application/xml": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Pet"
-                            }
-                        }
-                    }
+            "AllItemV3": {
+                "type": "object",
+                "name": "asd",
+                "properties": {
+                    "provider_name_0": {
+                        "type": "integer",
+                        "format": "int(32)",
+                        "example": "58853"
+                    },
+                    "provider_name_1": {
+                        "type": "integer",
+                        "format": "int(32)",
+                        "example": "64331"
+                    },
+                    "provider_name_2": {
+                        "type": "integer",
+                        "format": "int(32)",
+                        "example": "1235"
+                    },
                 },
-                "UserArray": {
-                    "description": "List of user object",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "type": "array",
-                                "items": {
-                                    "$ref": "#/components/schemas/User"
-                                }
-                            }
-                        }
-                    }
+                "xml": {
+                    "name": "prices"
+                },
+                example: {
+                    "XM1014 | Zombie Offensive (Well-Worn)": {
+                        "liquidity": 53.555,
+                        "buff": {
+                            "isInflated": false,
+                            "price": 32,
+                            "count": 43,
+                            "avg30": 28,
+                            "createdAt": "2023-02-02T12:13:07.393Z"
+                        },
+                    },
                 }
-            },
+            }
         },
         "securitySchemes": {
-            "bearerAuth": {
-                "type": "http",
-                "scheme": "bearer",
-                "bearerFormat": "JWT",
+            // "bearerAuth": {
+            //     "type": "http",
+            //     "scheme": "bearer",
+            //     "bearerFormat": "JWT",
+            //     "description": "Pricempire.com API Key",
+            // },
+            "api_key": {
                 "description": "Pricempire.com API Key",
+                "type": "apiKey",
+                "in": "query",
             }
         }
     },
