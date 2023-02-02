@@ -75,17 +75,6 @@ var spec = {
                             "example": 'USD'
                         }
                     },
-                    {
-                        "name": "source",
-                        "in": "query",
-                        "description": "Selected Providers",
-                        "required": false,
-                        "schema": {
-                            "type": "string",
-                            "format": "string",
-                            "example": 'buff163,skinport,csgoempire'
-                        }
-                    }
                 ],
                 "responses": {
                     "200": {

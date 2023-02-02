@@ -132,6 +132,20 @@
                         "enum": keys
                     }
                 })
+                spec['paths']['v2/getItemByName/{market_hash_name}']['get']['parameters'].push({
+                    "name": "source",
+                    "in": "query",
+                    "description": "Selected Providers (In array: &sources=buff&sources=csgoempire&sources=csgoroll)",
+                    "required": false,
+                    "schema": {
+                        "type": "string",
+                        "format": "string",
+                        "example": 'buff163,skinport,csgoempire',
+                        "enum": keys
+                    }
+                })
+
+
 
                 window.ui = SwaggerUIBundle({
                     spec,
