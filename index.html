@@ -107,7 +107,7 @@
         window.onload = () => {
             $.getJSON('https://pricempire.com/api/v2/meta/providerKeys').then(keys => {
                 console.log(keys);
-                spec['paths']['v2/getAllItems']['get']['parameters'].push({
+                spec['paths']['/v2/getAllItems']['get']['parameters'].push({
                     "name": "source",
                     "in": "query",
                     "description": "Selected Providers (Comma separated: buff,csgoempire,csgoroll)",
@@ -119,7 +119,7 @@
                         "enum": keys
                     }
                 })
-                spec['paths']['v3/getAllItems']['get']['parameters'].push({
+                spec['paths']['/v3/getAllItems']['get']['parameters'].push({
                     "name": "sources",
                     "in": "query",
                     "explode": true,
@@ -132,7 +132,7 @@
                         "enum": keys
                     }
                 })
-                spec['paths']['v2/getItemByName/{market_hash_name}']['get']['parameters'].push({
+                spec['paths']['/v2/getItemByName/{market_hash_name}']['get']['parameters'].push({
                     "name": "source",
                     "in": "query",
                     "description": "Selected Providers (Comma separated: buff,csgoempire,csgoroll)",

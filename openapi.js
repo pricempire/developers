@@ -36,7 +36,7 @@ var spec = {
         }
     ],
     "paths": {
-        "v2/getItemByName/{market_hash_name}": {
+        "/v2/getItemByName/{market_hash_name}": {
             "get": {
                 "tags": [
                     "Item"
@@ -101,7 +101,7 @@ var spec = {
                 ]
             },
         },
-        "v2/getAllItems": {
+        "/v2/getAllItems": {
             "get": {
                 "tags": [
                     "Item"
@@ -211,7 +211,7 @@ var spec = {
                 ]
             },
         },
-        "v3/getAllItems": {
+        "/v3/getAllItems": {
             "get": {
                 "tags": [
                     "Item"
