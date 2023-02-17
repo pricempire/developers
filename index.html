@@ -106,7 +106,6 @@
     <script>
         window.onload = () => {
             $.getJSON('https://pricempire.com/api/v2/meta/providerKeys').then(keys => {
-                console.log(keys);
                 spec['paths']['/v2/getAllItems']['get']['parameters'].push({
                     "name": "source",
                     "in": "query",

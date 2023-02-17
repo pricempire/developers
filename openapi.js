@@ -240,6 +240,18 @@ var spec = {
                             "example": 'USD'
                         }
                     },
+                    {
+                        "name": "appId",
+                        "in": "query",
+                        "description": "app ID",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "example": '730',
+                            "enum": ['730', "440", '570', '252490']
+                        }
+                    }
                 ],
                 "responses": {
                     "200": {
