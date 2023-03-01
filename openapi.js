@@ -41,9 +41,9 @@ var spec = {
                 "tags": [
                     "Inventory"
                 ],
-                "summary": "Getting a single item (API Key required)",
-                "description": "Getting a single item by market_hash_name",
-                "operationId": "getItemByName",
+                "summary": "Getting an user inventory (API Key required)",
+                "description": "Cached for 5 minutes",
+                "operationId": "getInventory",
                 "parameters": [
                     {
                         "name": "api_key",
