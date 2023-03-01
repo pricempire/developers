@@ -32,7 +32,7 @@ var spec = {
         },
         {
             "name": "Inventory",
-            "description": "Get Inventories (Soon)",
+            "description": "Get Inventories",
         }
     ],
     "paths": {

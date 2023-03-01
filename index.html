@@ -131,6 +131,20 @@
                         "enum": keys
                     }
                 })
+
+                spec['paths']['/v3/getInventory']['get']['parameters'].push({
+                    "name": "sources",
+                    "in": "query",
+                    "explode": true,
+                    "description": "Selected Providers (In array: &sources=buff&sources=csgoempire&sources=csgoroll)",
+                    "required": false,
+                    "schema": {
+                        "type": "array",
+                        "format": "string[]",
+                        "example": 'buff',
+                        "enum": keys
+                    }
+                })
                 spec['paths']['/v2/getItemByName/{market_hash_name}']['get']['parameters'].push({
                     "name": "source",
                     "in": "query",
