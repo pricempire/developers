@@ -36,6 +36,71 @@ var spec = {
         }
     ],
     "paths": {
+        "/v3/getInventory": {
+            "get": {
+                "tags": [
+                    "Inventory"
+                ],
+                "summary": "Getting a single item (API Key required)",
+                "description": "Getting a single item by market_hash_name",
+                "operationId": "getItemByName",
+                "parameters": [
+                    {
+                        "name": "api_key",
+                        "in": "query",
+                        "description": "Pricempire.com API key",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "steamId",
+                        "in": "path",
+                        "description": "Steam64ID of the user",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "format": "string"
+                        }
+                    },
+                    {
+                        "name": "currency",
+                        "in": "query",
+                        "description": "Selected currency (Default: USD)",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "example": 'USD'
+                        }
+                    },
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/getInventory"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid name supplied"
+                    },
+                    "404": {
+                        "description": "Item not found"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key": []
+                    }
+                ]
+            },
+        },
         "/v2/getItemByName/{market_hash_name}": {
             "get": {
                 "tags": [
@@ -1040,6 +1105,78 @@ var spec = {
     },
     "components": {
         "schemas": {
+            "getInventory": {
+                "type": "object",
+                "example":
+                {
+                    "user": {
+                        "name": "antal",
+                        "image": "5ff6e7042be74eb6d7a20e67c641aed358b3c4b1",
+                        "steam64Id": "76561198023809011",
+                        "created": "2010-04-12T00:00:00.000Z",
+                        "country": "N/A"
+                    },
+                    "items": [
+                        {
+                            "tradelock": true,
+                            "name": "★ Talon Knife",
+                            "image": "-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpovbSsLQJfxPrMfipP7dezhr-KmsjmJrnIqWZQ-sd9j-Db8IjKhF2zowdyNj37cYaQcQ8_NF7Zr1Dqwb270cPv6Z_Izydj7CkjtHrelkThhxwaP_sv26JqHcKn6w",
+                            "appId": 730,
+                            "category": "skin",
+                            "family": "★ Talon Knife",
+                            "marketHashName": "★ Talon Knife | Doppler (Factory New) - Ruby",
+                            "price": 310785,
+                            "p": 310785,
+                            "cheapest": 310785,
+                            "liquidity": "0.718725735524185341460000",
+                            "type": "skin",
+                            "sparkline": [
+                                311295,
+                                319825,
+                                319303,
+                                317809,
+                                316428,
+                                317809,
+                                315534,
+                                315085,
+                                314806,
+                                313475,
+                                314792,
+                                314123,
+                                313939,
+                                315582,
+                                320720,
+                                320389,
+                                318784,
+                                315534,
+                                314123,
+                                320389,
+                                315612,
+                                315288,
+                                314558,
+                                309045,
+                                305264,
+                                305447,
+                                305454,
+                                306215,
+                                306632,
+                                306424,
+                                310785
+                            ],
+                            "paintSeed": 865,
+                            "weaponId": 523,
+                            "float": 0.015595508739352226,
+                            "assetId": "28845088468",
+                            "prices": {
+                                "buff": 310785,
+                                "buff_buy": 301035
+                            },
+                            "pattern": null,
+                            "stickers": []
+                        },
+                    ]
+                }
+            },
             "SingleItem": {
                 "type": "object",
                 /*
