@@ -132,6 +132,18 @@
                     }
                 })
 
+                spec['paths']['/v3/getPriceHistories']['get']['parameters'].push({
+                    "name": "source",
+                    "in": "query",
+                    "description": "Supported Providers (&source=buff)",
+                    "required": false,
+                    "schema": {
+                        "type": "string",
+                        "format": "string",
+                        "example": 'buff',
+                        "enum": keys
+                    }
+                })
                 spec['paths']['/v3/getInventory']['get']['parameters'].push({
                     "name": "sources",
                     "in": "query",
