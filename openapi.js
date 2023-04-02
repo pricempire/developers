@@ -2,7 +2,7 @@ var spec = {
     "openapi": "3.0.2",
     "info": {
         "description": `A few endpoint need an active subscription. You can purchase [here](https://pricempire.com/subscribe).`,
-        "termsOfService": "https://pricempire.com/terms",
+        "termsOfService": "https://pricempire.com/assets/api-terms",
         "contact": {
             "email": "info@pricempire.com"
         },
