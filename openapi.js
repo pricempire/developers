@@ -196,6 +196,17 @@ var spec = {
                         }
                     },
                     {
+                        "name": "app_id",
+                        "in": "query",
+                        "description": "AppId (Default: 730)",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "string",
+                            "example": '730'
+                        }
+                    },
+                    {
                         "name": "days",
                         "in": "query",
                         "description": "Days (7, 14, 30, 60, 90, 120, 180, Depends on your subscription)",
