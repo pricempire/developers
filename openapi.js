@@ -171,7 +171,7 @@ var spec = {
                 "tags": [
                     "Item"
                 ],
-                "summary": "Get all items price history by source",
+                "summary": "Get all items price history by source (API Key required)",
                 "description": "Getting all items in one response",
                 "operationId": "getPriceHistories",
                 "parameters": [
