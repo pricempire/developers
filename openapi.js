@@ -408,6 +408,30 @@ var spec = {
                 ]
             },
         },
+        "/v3/get_all_items_test": {
+            "get": {
+                "tags": [
+                    "Item"
+                ],
+                "summary": "Getting all items in one response TEST Endpoint",
+                "description": "Getting all items in one response",
+                "operationId": "get_all_items_test",
+                "parameters": [
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/AllItemV3"
+                                }
+                            }
+                        }
+                    }
+                },
+            },
+        },
         /*
         "/pet/findByStatus": {
             "get": {
