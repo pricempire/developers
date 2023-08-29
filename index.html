@@ -112,7 +112,10 @@
     <script>
         window.onload = () => {
             $.getJSON('https://pricempire.com/api/v2/meta/providerKeys').then(keys => {
-                spec['paths']['/v2/getAllItems']['get']['parameters'].push({
+
+                keys = keys.filter(key => key !== 'buff_lastsale');
+
+                spec['paths']['/v2/items/prices']['get']['parameters'].push({
                     "name": "source",
                     "in": "query",
                     "description": "Selected Providers (Comma separated: buff,csgoempire,csgoroll)",
@@ -123,8 +126,8 @@
                         "example": 'buff163,skinport,csgoempire',
                         "enum": keys
                     }
-                })
-                spec['paths']['/v3/getAllItems']['get']['parameters'].push({
+                });
+                spec['paths']['/v3/items/prices']['get']['parameters'].push({
                     "name": "sources",
                     "in": "query",
                     "explode": true,
@@ -136,9 +139,8 @@
                         "example": 'buff',
                         "enum": keys
                     }
-                })
-
-                spec['paths']['/v3/getPriceHistories']['get']['parameters'].push({
+                });
+                spec['paths']['/v3/items/prices/history']['get']['parameters'].push({
                     "name": "source",
                     "in": "query",
                     "description": "Supported Providers (&source=buff)",
@@ -149,8 +151,8 @@
                         "example": 'buff',
                         "enum": keys
                     }
-                })
-                spec['paths']['/v3/getInventory']['get']['parameters'].push({
+                });
+                spec['paths']['/v3/inventory/{steamId}']['get']['parameters'].push({
                     "name": "sources",
                     "in": "query",
                     "explode": true,
@@ -162,8 +164,8 @@
                         "example": 'buff',
                         "enum": keys
                     }
-                })
-                spec['paths']['/v2/getItemByName/{market_hash_name}']['get']['parameters'].push({
+                });
+                spec['paths']['/v2/items/{market_hash_name}']['get']['parameters'].push({
                     "name": "source",
                     "in": "query",
                     "description": "Selected Providers (Comma separated: buff,csgoempire,csgoroll)",
@@ -174,10 +176,7 @@
                         "example": 'buff163,skinport,csgoempire',
                         "enum": keys
                     }
-                })
-
-
-
+                });
                 window.ui = SwaggerUIBundle({
                     spec,
                     dom_id: '#swagger-ui',
