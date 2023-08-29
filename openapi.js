@@ -254,7 +254,7 @@ var spec = {
                 "tags": [
                     "Item"
                 ],
-                "summary": "Getting items advanced data (API Key & Enterprise plan required)",
+                "summary": "Getting items advanced data (API Key & Enterprise plan required, 100mb+ data)",
                 "description": "Getting items advanced data",
                 "operationId": "getItemsAdvancedData",
                 "parameters": [
@@ -990,6 +990,42 @@ var spec = {
                 }
             },
             "AdvancedItems": {
+                "type": "object",
+                "name": "asd",
+                "properties": {
+                    "provider_name_0": {
+                        "type": "integer",
+                        "format": "int(32)",
+                        "example": "58853"
+                    },
+                    "provider_name_1": {
+                        "type": "integer",
+                        "format": "int(32)",
+                        "example": "64331"
+                    },
+                    "provider_name_2": {
+                        "type": "integer",
+                        "format": "int(32)",
+                        "example": "1235"
+                    },
+                },
+                "xml": {
+                    "name": "prices"
+                },
+                example: {
+                    "XM1014 | Zombie Offensive (Well-Worn)": {
+                        "liquidity": 53.555,
+                        "buff": {
+                            "isInflated": false,
+                            "price": 32,
+                            "count": 43,
+                            "avg30": 28,
+                            "createdAt": "2023-02-02T12:13:07.393Z"
+                        },
+                    },
+                }
+            },
+            "BasicItems": {
                 "type": "object",
                 "name": "asd",
                 "properties": {
