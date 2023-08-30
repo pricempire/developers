@@ -140,6 +140,9 @@
                         "enum": keys
                     }
                 });
+                
+                const noAvg = keys.filter(key => !key.includes('avg'));
+
                 spec['paths']['/v3/items/prices/history']['get']['parameters'].push({
                     "name": "source",
                     "in": "query",
@@ -149,7 +152,7 @@
                         "type": "string",
                         "format": "string",
                         "example": 'buff',
-                        "enum": keys
+                        "enum": noAvg
                     }
                 });
                 spec['paths']['/v3/inventory/{steamId}']['get']['parameters'].push({
